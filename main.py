@@ -14,11 +14,6 @@ class pantalla(QMainWindow):
         super().__init__()
         uic.loadUi("interfaz.ui", self)
 
-        img1 = normalizar_RGB(imageio.imread(
-            'imageio:coffee.png')[:, 50:550, :])
-        img2 = normalizar_RGB(imageio.imread(
-            'imageio:astronaut.png')[56:456, 6:506, :])
-
         self.boton.clicked.connect(self.getItem)
 
     def getItem(self):
@@ -81,6 +76,11 @@ def realizarOperacion(opc):
     elif opc == "If ligther":
         return ifLigther(img1, img2)*255
 
+
+img1 = normalizar_RGB(imageio.imread(
+    'imageio:coffee.png')[:, 50:550, :])
+img2 = normalizar_RGB(imageio.imread(
+    'imageio:astronaut.png')[56:456, 6:506, :])
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
