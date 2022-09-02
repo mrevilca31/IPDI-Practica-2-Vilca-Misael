@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>IPDIPractica2</class>
+ <widget class="QMainWindow" name="IPDIPractica2">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -77,6 +77,11 @@
     <item>
      <property name="text">
       <string>Producto</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cociente</string>
      </property>
     </item>
     <item>

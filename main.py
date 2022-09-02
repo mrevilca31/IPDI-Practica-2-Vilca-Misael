@@ -23,17 +23,12 @@ class pantalla(QMainWindow):
 
 
 def mostrarResultado(self, rgb):
-    rgb = np.minimum(rgb, 255)
-    rgb = np.maximum(rgb, 0)
+    rgb = np.clip(rgb, 0, 255)
     h, w, _ = rgb.shape
     im = QtGui.QImage(rgb.astype(np.uint8), w, h, 3 *
                       w, QtGui.QImage.Format_RGB888)
     pix = QtGui.QPixmap.fromImage(im)
     self.label_3.setPixmap(pix)
-
-
-def cuasiSumaRGB_Clamp(img1, img2):
-    return np.clip(img1 + img2, 0, 1)
 
 
 def realizarOperacion(opc):
@@ -68,7 +63,7 @@ def realizarOperacion(opc):
     elif opc == "Producto":
         return productoRGB(img1, img2)*255
     elif opc == "Cociente":
-        pass
+        return cocienteRGB(img1, img2)*255
     elif opc == "Resta en Valor Absoluto":
         return restaAbsoluta(img1, img2)*255
     elif opc == "If darker":

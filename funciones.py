@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import imageio
 
 ''' BIBLIOTECA DE FUNCIONES '''
 
@@ -102,14 +100,16 @@ def cuasiRestaYIQ_Prom(YA, IA, QA, YB, IB, QB):
 
 
 def productoRGB(img1, img2):
-    ''' recibe valores normalizados '''
-    return np.multiply(img1, img2)
+    return np.clip(img1*img2, 0, 1)
 
-# def cocienteRGB(img1, img2):
+
+def cocienteRGB(img1, img2):
+    img2 = np.clip(img2, 0.001, 1)
+    return img1/img2
 
 
 def restaAbsoluta(img1, img2):
-    return np.abs(img1-img2)
+    return np.clip(np.abs(img1-img2), 0, 1)
 
 
 def ifLigther(img1, img2):
